@@ -43,15 +43,14 @@ export class ContadorComponent extends Component {
     return (
       <div>
         {this.state.contador}
-        <a
-          href="#"
+        <button
           className="btn btn-dark"
           onClick={(event) => {
             this.sumar();
           }}
         >
           {this.props.children}
-        </a>
+        </button>
       </div>
     );
   }

@@ -4,7 +4,6 @@ import axios from 'axios';
 import ContadorComponent from './Contador';
 import Like from './images/like.png';
 import DontLike from './images/dontlike.png';
-import { Pagination } from 'semantic-ui-react';
 
 class Cards extends Component {
   constructor(props) {
@@ -19,7 +18,9 @@ class Cards extends Component {
   }
 
   pagination(state) {
-    this.setState({ currentPage: state });
+    this.setState({ currentPage: state }, () => {
+      this.getPeople();
+    });
   }
   pagPrev() {
     this.pagination(this.state.currentPage - 1);
@@ -125,7 +126,6 @@ class Cards extends Component {
               <li className="page-item">
                 <a
                   className="page-link text-white bg-dark"
-                  href="..."
                   onClick={(event) => {
                     this.pagPrev();
                   }}
@@ -136,7 +136,6 @@ class Cards extends Component {
               <li className="page-item">
                 <a
                   className="page-link text-white bg-dark"
-                  href="..."
                   onClick={(event) => {
                     this.pagNext();
                   }}
