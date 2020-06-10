@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './cards.css';
+import './Cards.css';
 import axios from 'axios';
 import ContadorComponent from './Contador';
 import Like from './images/like.png';
@@ -35,7 +35,7 @@ class Cards extends Component {
             const like = `like-card-${index}`;
             const dontLike = `dontLike-card-${index}`;
             return (
-              <div className="cards">
+              <div>
                 <div className="container-fluid d-flex justify-content-center mr-5 p-3">
                   <div className="row">
                     <div className="col-sm-12 col-md-12 col-lg-12 p-0">
