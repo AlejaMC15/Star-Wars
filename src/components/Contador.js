@@ -45,7 +45,7 @@ export class ContadorComponent extends Component {
         {this.state.contador}
         <a
           href="#"
-          className="btn btn-dark"
+          className="btn btn-dark mr-3"
           onClick={(event) => {
             this.sumar();
             console.log();

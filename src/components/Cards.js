@@ -18,7 +18,7 @@ class Cards extends Component {
 
   getPeople() {
     return axios.get('https://swapi.dev/api/people').then((response) => {
-      console.log(response.data.results);
+      console.log(response.data);
       this.setState({ people: response.data.results });
     });
   }
@@ -29,7 +29,7 @@ class Cards extends Component {
 
   render() {
     return (
-      <div className="body">
+      <div className="body img-fluid">
         <div>
           {this.state.people.map((people, index) => {
             const like = `like-card-${index}`;
@@ -40,7 +40,7 @@ class Cards extends Component {
                   <div className="row">
                     <div className="col-sm-12 col-md-12 col-lg-12 p-0">
                       <div className="card" style={{ width: '18rem' }}>
-                        <div className="card-body p-0">
+                        <div className="cardcolor">
                           <h5 className="card-title text-center p-2">
                             {people.name}
                           </h5>
@@ -105,6 +105,35 @@ class Cards extends Component {
               </div>
             );
           })}
+          <nav aria-label="Page navigation">
+            <ul class="pagination d-flex justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  Previous
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  1
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  2
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  3
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  Next
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     );
