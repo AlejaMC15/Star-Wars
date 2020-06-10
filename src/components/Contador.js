@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Like from './images/like.png';
+import React, { Component, Children } from 'react';
 
 export class ContadorComponent extends Component {
   constructor(props) {
@@ -10,7 +9,7 @@ export class ContadorComponent extends Component {
   }
 
   componentDidMount() {
-    const results = localStorage.getItem('contador');
+    const results = localStorage.getItem(this.props.storageKey);
     if (results) {
       this.setState({
         contador: JSON.parse(results),
@@ -19,7 +18,10 @@ export class ContadorComponent extends Component {
   }
 
   componentDidUpdate() {
-    localStorage.setItem('contador', JSON.stringify(this.state.contador));
+    localStorage.setItem(
+      this.props.storageKey, //acceder a una propiedad de localStorage de forma dinámica
+      JSON.stringify(this.state.contador)
+    );
   }
 
   crearNuevoRegistro = (datos) => {
@@ -40,9 +42,7 @@ export class ContadorComponent extends Component {
   render() {
     return (
       <div>
-        &nbsp;
         {this.state.contador}
-        &nbsp;
         <a
           href="#"
           className="btn btn-dark"
@@ -51,7 +51,7 @@ export class ContadorComponent extends Component {
             console.log();
           }}
         >
-          <img className="like" src={Like} alt="Like" />
+          {this.props.children}
         </a>
       </div>
     );
