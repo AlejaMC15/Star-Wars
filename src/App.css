@@ -1,3 +1,13 @@
-body {
+.body {
+  background-image: url(./components/images/stars.jpg);
+  max-width: 100%;
+  min-width: 100%;
+  position: absolute;
+}
+
+.cardcolor {
   background-color: black;
+  border: 2px solid rgb(206, 154, 13);
+  margin: 0px;
+  color: white;
 }
