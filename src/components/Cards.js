@@ -4,6 +4,7 @@ import axios from 'axios';
 import ContadorComponent from './Contador';
 import Like from './images/like.png';
 import DontLike from './images/dontlike.png';
+import { Pagination } from 'semantic-ui-react';
 
 class Cards extends Component {
   constructor(props) {
@@ -15,6 +16,17 @@ class Cards extends Component {
     };
 
     this.getPeople = this.getPeople.bind(this);
+  }
+
+  pagination(state) {
+    this.setState({ currentPage: state });
+  }
+  pagPrev() {
+    this.pagination(this.state.currentPage - 1);
+  }
+
+  pagNext() {
+    this.pagination(this.state.currentPage + 1);
   }
 
   getPeople() {
@@ -111,27 +123,24 @@ class Cards extends Component {
           <nav aria-label="Page navigation">
             <ul className="pagination d-flex justify-content-center">
               <li className="page-item">
-                <a className="page-link text-white bg-dark" href="...">
+                <a
+                  className="page-link text-white bg-dark"
+                  href="..."
+                  onClick={(event) => {
+                    this.pagPrev();
+                  }}
+                >
                   Previous
                 </a>
               </li>
               <li className="page-item">
-                <a className="page-link text-white bg-dark" href="...">
-                  1
-                </a>
-              </li>
-              <li className="page-item">
-                <a className="page-link text-white bg-dark" href="...">
-                  2
-                </a>
-              </li>
-              <li className="page-item">
-                <a className="page-link text-white bg-dark" href="...">
-                  3
-                </a>
-              </li>
-              <li className="page-item">
-                <a className="page-link text-white bg-dark" href="...">
+                <a
+                  className="page-link text-white bg-dark"
+                  href="..."
+                  onClick={(event) => {
+                    this.pagNext();
+                  }}
+                >
                   Next
                 </a>
               </li>

@@ -32,7 +32,7 @@ export class ContadorComponent extends Component {
   };
 
   cambiarContador(n) {
-    this.setState({ contador: n });
+    this.setState({ contador: n }); //guardar en el state
   }
 
   sumar() {
@@ -48,7 +48,6 @@ export class ContadorComponent extends Component {
           className="btn btn-dark"
           onClick={(event) => {
             this.sumar();
-            console.log();
           }}
         >
           {this.props.children}
