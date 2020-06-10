@@ -10,6 +10,7 @@ class Cards extends Component {
     super(props);
 
     this.state = {
+      currentPage: 1,
       people: [],
     };
 
@@ -17,10 +18,12 @@ class Cards extends Component {
   }
 
   getPeople() {
-    return axios.get('https://swapi.dev/api/people').then((response) => {
-      console.log(response.data);
-      this.setState({ people: response.data.results });
-    });
+    return axios
+      .get(`http://swapi.dev/api/people/?page=${this.state.currentPage}`)
+      .then((response) => {
+        console.log(response.data);
+        this.setState({ people: response.data.results });
+      });
   }
 
   componentDidMount() {
@@ -37,8 +40,8 @@ class Cards extends Component {
             return (
               <div>
                 <div className="container-fluid d-flex justify-content-center mr-5 p-3">
-                  <div className="row">
-                    <div className="col-sm-12 col-md-12 col-lg-12 p-0">
+                  <div className="row row-cols-3">
+                    <div className="col-sm-12 col-md-4 col-lg-4 p-0">
                       <div className="card" style={{ width: '18rem' }}>
                         <div className="cardcolor">
                           <h5 className="card-title text-center p-2">
@@ -106,29 +109,29 @@ class Cards extends Component {
             );
           })}
           <nav aria-label="Page navigation">
-            <ul class="pagination d-flex justify-content-center">
-              <li class="page-item">
-                <a class="page-link" href="#">
+            <ul className="pagination d-flex justify-content-center">
+              <li className="page-item">
+                <a className="page-link text-white bg-dark" href="...">
                   Previous
                 </a>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <a className="page-link text-white bg-dark" href="...">
                   1
                 </a>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <a className="page-link text-white bg-dark" href="...">
                   2
                 </a>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <a className="page-link text-white bg-dark" href="...">
                   3
                 </a>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <a className="page-link text-white bg-dark" href="...">
                   Next
                 </a>
               </li>

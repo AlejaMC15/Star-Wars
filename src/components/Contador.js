@@ -1,4 +1,4 @@
-import React, { Component, Children } from 'react';
+import React, { Component } from 'react';
 
 export class ContadorComponent extends Component {
   constructor(props) {
@@ -45,7 +45,7 @@ export class ContadorComponent extends Component {
         {this.state.contador}
         <a
           href="#"
-          className="btn btn-dark mr-3"
+          className="btn btn-dark"
           onClick={(event) => {
             this.sumar();
             console.log();
