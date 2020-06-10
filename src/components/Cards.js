@@ -89,7 +89,6 @@ class Cards extends Component {
                               </p>
                             </li>
                           </ul>
-
                           <div className="d-flex justify-content-around">
                             <ContadorComponent storageKey={like}>
                               <img className="like" src={Like} alt="Like" />
