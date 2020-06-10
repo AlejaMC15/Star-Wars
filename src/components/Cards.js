@@ -32,7 +32,7 @@ class Cards extends Component {
 
   getPeople() {
     return axios
-      .get(`http://swapi.dev/api/people/?page=${this.state.currentPage}`)
+      .get(`https://swapi.dev/api/people/?page=${this.state.currentPage}`)
       .then((response) => {
         console.log(response.data);
         this.setState({ people: response.data.results });
