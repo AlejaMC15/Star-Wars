@@ -17,7 +17,7 @@ class Cards extends Component {
   }
 
   getPeople() {
-    return axios.get('https://swapi.dev/api/people').then((response) => {
+    return axios.get('http://swapi.dev/api/people').then((response) => {
       console.log(response.data.results);
       this.setState({ people: response.data.results });
     });
@@ -40,8 +40,8 @@ class Cards extends Component {
                   <div className="row">
                     <div className="col-sm-12 col-md-12 col-lg-12 p-0">
                       <div className="card" style={{ width: '18rem' }}>
-                        <div className="card-body">
-                          <h5 className="card-title text-center">
+                        <div className="card-body p-0">
+                          <h5 className="card-title text-center p-2">
                             {people.name}
                           </h5>
                           <ul>
@@ -89,7 +89,7 @@ class Cards extends Component {
                               </p>
                             </li>
                           </ul>
-                          <div className="d-flex justify-content-around">
+                          <div className="d-flex justify-content-around p-2">
                             <ContadorComponent storageKey={like}>
                               <img className="like" src={Like} alt="Like" />
                             </ContadorComponent>
@@ -106,35 +106,6 @@ class Cards extends Component {
             );
           })}
         </div>
-        <nav aria-label="Page navigation example p-3">
-          <ul class="pagination justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#">
-                Previous
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                1
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                2
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                3
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                Next
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     );
   }
