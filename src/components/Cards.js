@@ -17,7 +17,7 @@ class Cards extends Component {
   }
 
   getPeople() {
-    return axios.get('https://swapi.dev/api/people').then((response) => {
+    return axios.get('http://swapi.dev/api/people').then((response) => {
       console.log(response.data.results);
       this.setState({ people: response.data.results });
     });
